@@ -1,0 +1,76 @@
+npm install qrious --save
+
+Opción 2: Crear una declaración de módulo
+Crea un archivo de declaración de tipos:
+
+Puedes crear un archivo llamado qrious.d.ts en tu proyecto para declarar el módulo. Sigue estos pasos:
+
+Crea una carpeta llamada @types en la raíz de tu proyecto (si no existe).
+Dentro de @types, crea un archivo llamado qrious.d.ts.
+
+El contenido del archivo debe ser:
+typescript
+
+declare module 'qrious' {
+  export default class QRious {
+    constructor(options?: {
+      element?: HTMLCanvasElement;
+      value?: string;
+      size?: number;
+      level?: 'L' | 'M' | 'Q' | 'H';
+    });
+  }
+}
+
+Configura TypeScript para incluir el directorio de tipos:
+Asegúrate de que tu archivo tsconfig.json tenga la siguiente opción para incluir el directorio de tipos:
+
+json
+
+{
+  "compilerOptions": {
+    "typeRoots": [
+      "node_modules/@types",
+      "src/@types" // Asegúrate de incluir esta línea
+    ],
+    // otras configuraciones...
+  }
+}
+
+1. Instalar el plugin
+https://ionicframework.com/docs/native/setup
+Ejecuta los siguientes comandos para instalar el plugin y sincronizarlo con tu proyecto:
+# Install the Capacitor Plugins
+$ npm install @capacitor/camera
+
+2. Configurar el plugin
+Después de instalar, necesitas configurar algunos permisos para la cámara:
+Para Android: Asegúrate de que AndroidManifest.xml tenga los permisos necesarios:
+<uses-permission android:name="android.permission.CAMERA" />
+
+3. Implementar el escáner QR en tu componente
+En el archivo .ts (por ejemplo, alumno.component.ts), agrega la lógica para escanear el QR:
+
+import { Component } from '@angular/core';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { Platform } from '@ionic/angular';
+
+@Component({
+  selector: 'app-alumno',
+  templateUrl: './alumno.component.html',
+})
+export class AlumnoComponent {
+
+  public imageSrc: string | undefined = '';
+
+  async takePicture() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri
+    });
+    const imageUrl = image.webPath;
+    this.imageSrc = imageUrl;
+  };
+
+}

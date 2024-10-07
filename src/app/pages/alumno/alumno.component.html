@@ -1,0 +1,26 @@
+<!-- alumno.component.html -->
+<ion-content>
+  <app-header></app-header>
+
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Asignaturas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-list class="p-2 mt-3 mb-3">
+    <ion-item *ngFor="let asignatura of asignaturas">
+      <div class="asignatura-container">
+        <div class="asignatura-nombre">
+          {{ asignatura.nombre }} - {{ asignatura.codigo }}
+        </div>
+      </div>
+      <ion-button (click)="takePicture()" fill="outline" class="escanear-qr-button">Escanear QR</ion-button>
+    </ion-item>
+  </ion-list>
+
+
+  <app-footer></app-footer>
+</ion-content>
