@@ -19,6 +19,8 @@ export class AsistenciaComponent  implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Asistencia OnInit!');
+  }
 
 }

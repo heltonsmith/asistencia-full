@@ -3,9 +3,9 @@
   <app-header></app-header>
 
   <div class="p-4">
-    @if (isLoading) {
-      <ion-spinner name="bubbles"></ion-spinner>
-    }
+    <!-- loading -->
+    <ion-spinner *ngIf="isLoading" name="bubbles"></ion-spinner>
+
     <!-- Contenido del Login -->
     <p>login works!</p>
     <ion-item>

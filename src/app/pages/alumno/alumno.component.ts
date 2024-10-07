@@ -1,6 +1,6 @@
 // alumno.component.ts
 import { Component } from '@angular/core';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Camera, CameraResultType } from '@capacitor/camera';
 
 @Component({
   selector: 'app-alumno',
