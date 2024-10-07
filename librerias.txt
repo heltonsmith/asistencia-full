@@ -103,3 +103,35 @@ Inspección del Error: Utiliza Chrome DevTools para inspeccionar la aplicación
 mientras se ejecuta en un dispositivo físico o emulador. Para ello,
 abre chrome://inspect en tu navegador Chrome y
 selecciona tu dispositivo para ver posibles errores de consola o estilos no cargados.
+
+Ajusta la Hoja de Estilos Globales (global.scss):
+Es posible que algunos estilos globales estén afectando la visibilidad de los formularios en dispositivos móviles.
+Prueba ajustando la hoja de estilos para asegurarte de que el contenido del ion-content se muestre adecuadamente:
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-item, ion-input, ion-button {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px 0;
+  border: 1px solid black
+}
+
+
+Cache y Archivos Residuales: A veces, el problema puede ser causado por un problema
+de caché o archivos residuales en la aplicación.
+Intenta limpiar la caché y reinstalar la aplicación:
+
+ionic capacitor clean
+npm cache clean --force
+
+Luego, vuelve a compilar e instalar la app en el dispositivo:
+
+ionic build
+npx cap copy
+npx cap sync
+npx cap run android
