@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocenteComponent } from './docente/docente.component';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { SharedModule } from '../shared/shared.module';
@@ -31,7 +31,8 @@ import { AsistenciaComponent } from './asistencia/asistencia.component';
     PagesRoutingModule,
     SharedModule, // Include SharedModule for common components and modules
     IonicModule, // Include FormsModule for form validation
-    FormsModule // Include IonicModule for Ionic components
+    FormsModule, // Include IonicModule for Ionic components
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }
